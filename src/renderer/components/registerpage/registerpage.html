@@ -1,0 +1,33 @@
+<div id="register" class="container">
+    <h3 class="rose">Registration</h3>
+    <div class="registerContainer">
+        <form class=" needs-validation">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="username" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" id="newusername" placeholder="username" required="" ng-model="newusername">
+                        <div class="invalid-feedback">
+                            Your username is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="email" class="form-label">Email </label>
+                    <input type="email" class="form-control" id="newuseremail" placeholder="you@example.com" ng-model="newuseremail">
+                </div>
+                <div class="col-12">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" ng-model="newuserpassword">
+                </div>
+                <div class="form-group">
+                    <p>Already i have an acount... <span><a href="#!/loginpage" class="green">login</a></span></p>
+                </div>
+                <div class="col-12">
+                    <button class=" btn  all-btn-color white " type="submit" style="width:100%;" ng-click="register(newusername,newuseremail,newuserpassword)" id="registerbtn">REGISTER</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+
+
+
+
+
+<div id="dashboard" style="width: 100%;">
+    <h3 class="ms-5 rose">Please select <br class="ms-5">any one of our service</h3>
+    <div id="dashboardContainer">
+        <div class="d-flex justify-content-around white" style="text-align: center;">
+            <div>
+                <a href="" id="rs"><img src="../../bin/Assets/icons/imageresize.png" class="imghover"
+                        ng-click="imgresizerselection()"></a>
+
+                <p>Image resize</p>
+            </div>
+            <div>
+                <img src="../../bin/Assets/icons/screenrecord.png" class="imghover"
+                    ng-click="screenrecorderselection()">
+                <p>Screen Recording</p>
+            </div>
+            <div>
+                <img src="../../bin/Assets/icons/clipboard.webp" class="imghover" ng-click="clipboardselection()">
+                <p>Clip board</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="workpage" style="display: none;">
+    <ul class="nav d-flex justify-content-between" id="topNav">
+
+        <div class="d-flex justify-content-between ms-1">
+            <li class="nav-item">
+                <img src="../../bin/Assets/user icon/icons8-user-64.png" width="30px" height="30px"
+                    style="margin-top: 5px;">
+            </li>
+            <li class="nav-item">
+                <p>{{currentusername}}</p>
+            </li>
+        </div>
+        <button type="button" class=" me-1"
+            style="height: 30px !important;margin-top: 5px !important;border: none;border-radius: 9px;"
+            ng-click="logout()"> <img src="../../bin/Assets/icons/correct logout.png"
+                style="height: 25px !important;margin-top: 0 !important;padding-top: 0 !important;"></button>
+    </ul>
+    <div class="sidenav">
+        <a href ng-click="imgresizerselection() " id="inav"><img src="../../bin/Assets/navicon/icons8-resize-64 (1).png"
+                width="100" height="90"></a>
+        <a href ng-click="screenrecorderselection()" id="snav"><img src="../../bin/Assets/navicon/icons8-video-64.png"
+                width="100" height="100"></a>
+        <a href ng-click="clipboardselection()" id="cnav"><img
+                src="../../bin/Assets/navicon/icons8-cutting-board-64.png" width="100" height="100"></a>
+        <!-- <a href>Contact</a> -->
+    </div>
+    <div style="background-color: white;height: 85vh;color:black; padding-left: 160px;display: none;" id="imageresizer">
+        <p class="rose">Select The Image </p>
+        <div id="imageresizerContainer">
+         
+            <div class="input-group mb-3 ">
+                <input type="file" class="form-control" id="inputGroupFile02" ng-model="imageload"
+                    onchange="angular.element(this).scope().selectimage(event)">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            </div>
+            <div class=" mb-3">
+                <div class="spaceforimage">
+                    <div class="spaceforimageinside"></div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Width</span>
+                <input type="number" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" id="width">
+                <span class="input-group-text">Height</span>
+                <input type="number" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" id="height">
+            </div>
+            <div class="col-12">
+                <button class=" btn  all-btn-color white " type="submit" style="width:100%;" ng-click="imgresize()"
+                    id="imgresizebtn">Resize</button>
+            </div>
+        </div>
+        <div class="col-12 d-flex justify-content-around mt-3 "><button type="button" class="btn btn-primary btn-sm "
+                ng-click="saveimage()" id="saveimagebtn">Save</button>
+            <button type="button" class="btn btn-secondary btn-sm  " ng-click="imageresizerpreviewpage()">Preview</button>
+        </div>
+    </div>
+    <div id="imageresizerpreview"
+        style="background-color: white;height: 85vh;color:black; padding-left: 160px;display: none;">
+
+        <div id="modeel">
+            <!-- Modal content -->
+            <div id="modeelinside">
+
+                <img src="" alt="" srcset="" id="imageshow" width="400px" height="300px">
+                <button type="button" class="btn btn-danger btn-sm  " ng-click="closedisplayimgone()">x</button>
+
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <p class="rose">Your Saved Image </p>
+            <img src="../../bin/Assets/icons/icons8-back-64 (1).png" ng-click="imgresizerselection()" width="30px"
+                height="30px" style="margin-top: 10px;">
+        </div>
+        <div id="imgtablecontainer">
+
+
+            <table class="table table-sm">
+                <thead>
+                    <th>Image name</th>
+                    <th>Image size</th>
+                    <th>View</th>
+                    <th>Download</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    <div id="currentuserimgcontainer">
+                        <tr ng-repeat="x in currentuserimg">
+                            <td>{{x.imgname}}</td>
+                            <td>{{x.imgwidth}} X {{x.imgheight}} </td>
+                            <td ng-click="displayimgone(x)"><img width="30px" height="30px"
+                                    src="../../bin/Assets/icons/icons8-view-64.png"></td>
+                            <td ng-click="downloadimg(x)"><img width="30px" height="30px"
+                                    src="../../bin/Assets/icons/icons8-download-64.png" style="margin-left: 20px;"></td>
+                            <td ng-click="deleteimg(x)"><img width="30px" height="30px"
+                                    src="../../bin/Assets/icons/icons8-delete-64.png" style="margin-left: 10px;;"></td>
+
+
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+            <!-- <div ng-repeat="y in currentuserimg">
+                <img src={{y.imgurl}} alt="" width="100px" height="100px" style="display:none">            
+            </div> -->
+
+           
+        </div>
+
+
+
+    </div>
+    <div id="screenrecorder"
+        style="background-color: white;height: 85vh;color:black; padding-left: 160px;display: none;">
+
+
+      
+
+        <p class="rose">Video Recording </p>
+
+        <div class="d-flex justify-content-center">
+            <img id="novideoimg" width="200px" height="120px" src="../../bin/Assets/background/download.png"
+                style="margin-top: 15px ;margin-bottom: 15px;">
+            <video width="200px" height="150px" autoplay style="display: none;"></video>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div id="playimg"> <img src="../../bin/Assets/icons/icons8-play-64.png" width="30px" height="30px"
+                    ng-click="startrecording()">
+                <p>Play</p>
+            </div>
+            <img id="recimg" src="../../bin/Assets/icons/rec img.gif" width="50px" height="30px" style="display: none;">
+            <div><img src="../../bin/Assets/icons/icons8-stop-64.png" width="30px" height="30px"
+                    ng-click="stopRecording()" id="videostopbtn">
+                <p>Stop</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around mt-3">
+            <button type="button" class="btn btn-success" ng-click="downloadvideo()"
+                id="downloadvideobtn">Download</button>
+            <button type="button" class="btn btn-primary" ng-click="currentusersavevideo()"
+                id="savevideobtn">Save</button>
+            <button type="button" class="btn btn-secondary" ng-click="screenrecorderpreviewselection()">Preview</button>
+        </div>
+    </div>
+    <div id="screenrecorderpreview"
+        style="background-color: white;height: 85vh;color:black; padding-left: 160px;display: none;">
+        <div id="modeel1">
+            <!-- Modal content -->
+            <div id="modeelinside1">
+
+                <video src="" alt="" srcset="" id="vidshow" width="400px" height="300px" controls></video>
+                <button type="button" class="btn btn-danger btn-sm  " ng-click="closedisplayvidone()">x</button>
+
+            </div>
+
+        </div>
+
+      
+
+
+
+
+
+
+
+
+        <div class="d-flex justify-content-between">
+            <p class="rose">Your Saved Video </p>
+            <img src="../../bin/Assets/icons/icons8-back-64 (1).png" ng-click="screenrecorderselection()" width="30px"
+                height="30px" style="margin-top: 10px;">
+        </div>
+
+        <div id="videocontainer">
+            <table class="table table-sm">
+                <thead>
+                    <th>Video name</th>
+                  
+                    <th>View</th>
+                
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    <div id="currentuservidcontainer">
+                        <tr ng-repeat="x in userallvideo">
+                            <td>{{x.videoname}}</td>
+                            
+                            <td ng-click="displayvideoone(x)"><img width="30px" height="30px"
+                                    src="../../bin/Assets/icons/icons8-view-64.png"></td>
+                            <td ng-click="deletevideo(x)"><img width="30px" height="30px"
+                                    src="../../bin/Assets/icons/icons8-delete-64.png" style="margin-left: 10px;;"></td>
+
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div id="clipboard" style="background-color: white;height: 85vh;color:black; padding-left: 160px;display: none;">
+        <p class="rose">Your Clipboard </p>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="" id="inputt" style="height: 250px;width:510px;"
+                ng-model="clipboardtext"></textarea>
+            <label for="floatingTextarea2"></label>
+        </div>
+        <div class="d-flex justify-content-around" style="width: 510px !important;">
+            <div class="input-group input-group-sm mt-1">
+                <span class="input-group-text" id="inputGroup-sizing-sm">File name</span>
+                <input id="textname" type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" ng-model="textfilename">
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-1">
+            <button type="button" class="btn btn-success" ng-click="downloadtext()">Download</button>
+        </div>
+    </div>
+    <div id="clipboardpreview" style="display:none">
+        <h1>Clipboardpreview</h1>
+    </div>
+</div>

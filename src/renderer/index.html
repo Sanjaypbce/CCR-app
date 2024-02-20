@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCR app</title>
+  
+    <!-- <link rel="stylesheet" href="index.css">
+    <script src="./app.js"></script>    -->
+
+    <script src="../../bundle/js/webpack.renderer.js"></script>
+
+    
+</head>
+<body ng-controller="mainController" >
+    <div id="title-bar">
+
+        <div id="title"> <span><img src="../../bin/Assets/icons/icons8-male-thinking-64.png" alt="" width="33px"
+                    height="33px" style="margin-right: 5px !important;"></span>CCRapp</div>
+        <div id="title-bar-btns">
+            <button id="min-btn" ng-click="minbtn()">_</button>
+            <!-- <button id="max-btn" ng-click="maxbtn()">-</button> -->
+            <button id="close-btn" ng-click="closebtn()">x</button>
+        </div>
+    </div>
+    
+    <ng-view></ng-view>
+    
+</body>
+</html>

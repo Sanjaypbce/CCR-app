@@ -1,0 +1,36 @@
+<div class="container">
+    <h3 class="rose">Please Sign In</h3>
+    <div id="login" class="white">
+        <form class="loginform needs-validation" id="loginform">
+            <div class="col-12">
+                <label for="username" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="lat">@</span>
+                    <input type="text" class="form-control" id="loginusername" placeholder="Username" required=""
+                        ng-model="loginusername">
+                    <div class="invalid-feedback">
+                        Your username is required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="password" class="form-label">Password <span
+                        class="text-body-secondary">(Optional)</span></label>
+                <input type="password" class="form-control" id="loginuserpassword" ng-model="loginuserpassword">
+            </div>
+            <div class="form-group mt-2">
+                <p class="white">I don't have an acount... <span><a href="#!/registerpage"
+                            class="green">Register</a></span>
+                </p>
+            </div>
+            <div class="col-12">
+                <button class=" btn  all-btn-color white " type="submit" style="width:100%;"
+                    ng-click="login(loginusername,loginuserpassword)">LOGIN</button>
+            </div>
+            <p id="copyRight" class="mt-5 mb-3 text-body-secondary">© 2017–2023</p>
+            <!-- checking -->
+           
+            <!-- over -->
+        </form>
+    </div>
+</div>

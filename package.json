@@ -1,0 +1,78 @@
+{
+  "name": "ccrapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle/webpack.main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm nodemon .",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "make:win": "electron-builder build -w",
+    "make:linux": "electron-builder build --linux deb",
+    "lint": "echo \"No linting configured\"",
+    "build": "webpack",
+    "building": "webpack --config webpack.config.js"
+  },
+  "author": "sanjay <sanjay@gmail.com>",
+  "homepage": "undefined",
+  "license": "ISC",
+  "dependencies": {
+    "babel-loader": "^9.1.3",
+    "dotenv-webpack": "^8.0.1",
+    "firebase": "^10.7.1",
+    "g": "^2.0.1",
+    "html-webpack-plugin": "^5.5.4",
+    "import-loader": "^1.0.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "perf_hooks": "^0.0.1"
+  },
+  "devDependencies": {
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.3",
+    "assert": "~1.1.1",
+    "async": "~0.9.0",
+    "autoprefixer": "^10.4.16",
+    "bootstrap": "^5.3.2",
+    "color": "^4.2.3",
+    "css-loader": "^6.8.1",
+    "electron": "^27.1.2",
+    "electron-builder": "^24.9.1",
+    "electron-packager": "^17.1.2",
+    "electron-reloader": "^1.2.3",
+    "electron-renderer": "^2.0.4",
+    "faker": "*",
+    "fontawesome": "^5.6.3",
+    "fs-extra": "~0.10.0",
+    "grunt-concurrent": "^1.0.0",
+    "jimp": "^0.22.10",
+    "jquery": "^3.7.1",
+    "mocha": "*",
+    "nodemon": "^3.0.1",
+    "postcss-loader": "^7.3.3",
+    "regenerator-runtime": "^0.14.1",
+    "resize-img": "^2.0.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "temp": "~0.8.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0",
+    "webpack-node-externals": "^3.0.0",
+    "yeoman-assert": "^2.1.1",
+    "yeoman-test": "^1.1.0"
+  },
+  "build": {
+    "appId": "task1",
+    "win": {
+      "icon": "bin/Assets/icons/appicon.ico"
+    },
+    "linux": {
+      "icon": "bin/Assets/icons/AnyConv.com__icons8-male-thinking-64(1).icns",
+      "target": "deb"
+    }
+  }
+}
